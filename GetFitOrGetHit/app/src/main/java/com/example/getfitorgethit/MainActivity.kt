@@ -1,5 +1,6 @@
 package com.example.getfitorgethit
 
+
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -11,6 +12,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import android.content.Intent
 
 class MainActivity : AppCompatActivity(), SensorEventListener {
     // Added SensorEventListener the MainActivity class
@@ -28,15 +30,40 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     // and it has been given the value of 0 float
     private var totalSteps = 0f
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         loadData()
         saveData()
 
         // Adding a context of SENSOR_SERVICE as Sensor Manager
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        
+        var statsbutton = findViewById<Button>(R.id.statspagebutton)
+        statsbutton.setOnClickListener {
+            val intentstats = Intent(this, StatsPage::class.java)
+            startActivity(intentstats)
+        }
+
+        var questsbutton = findViewById<Button>(R.id.questpagebutton)
+        questsbutton.setOnClickListener {
+            val intentquests = Intent(this, QuestsPage::class.java)
+            startActivity(intentquests)
+        }
+
+        var shopbutton = findViewById<Button>(R.id.shoppagebutton)
+        shopbutton.setOnClickListener {
+            val intentshop = Intent(this, ShopPage::class.java)
+            startActivity(intentshop)
+        }
+
+        var settingsbutton = findViewById<Button>(R.id.settingspagebutton)
+        settingsbutton.setOnClickListener {
+            val intentsettings = Intent(this, SettingsPage::class.java)
+            startActivity(intentsettings)
     }
 
     override fun onResume() {
@@ -60,6 +87,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     override fun onSensorChanged(event: SensorEvent?) {
         if (running) {
             totalSteps = event!!.values[0]
+
         }
     }
 
