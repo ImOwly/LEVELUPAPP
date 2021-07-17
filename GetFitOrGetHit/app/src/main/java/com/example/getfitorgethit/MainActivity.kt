@@ -36,12 +36,20 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var stepButton = findViewById<Button>(R.id.button)
+        var tv_stepsTaken = findViewById<TextView>(R.id.steps)
+
+        stepButton.setOnClickListener {
+            Toast.makeText(getApplicationContext(),
+                "This a toast message",
+                Toast.LENGTH_LONG)
+                .show();
+            totalSteps++;
+            tv_stepsTaken.text = ("$totalSteps")
+        }
+
         loadData()
         resetSteps()
-
-
-
-
 
         // Adding a context of SENSOR_SERVICE aas Sensor Manager
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
@@ -133,4 +141,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         // We do not have to write anything in this function for this app
     }
+
+
 }

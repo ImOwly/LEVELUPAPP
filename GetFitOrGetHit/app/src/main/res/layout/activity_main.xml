@@ -33,7 +33,7 @@
         android:id="@+id/steps"
         android:layout_width="144dp"
         android:layout_height="118dp"
-        android:text="zxvzxcv"
+        android:text="0"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
