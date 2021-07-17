@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GetFitOrGetHit">
+        <activity android:name=".SettingsPage"></activity>
+        <activity android:name=".ShopPage" />
+        <activity android:name=".QuestsPage" />
+        <activity android:name=".StatsPage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
