@@ -28,30 +28,14 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     // and it has been given the value of 0 float
     private var totalSteps = 0f
 
-    // Creating a variable  which counts previous total
-    // steps and it has also been given the value of 0 float
-    private var previousTotalSteps = 0f
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var stepButton = findViewById<Button>(R.id.button)
-        var tv_stepsTaken = findViewById<TextView>(R.id.steps)
-
-        stepButton.setOnClickListener {
-            Toast.makeText(getApplicationContext(),
-                "This a toast message",
-                Toast.LENGTH_LONG)
-                .show();
-            totalSteps++;
-            tv_stepsTaken.text = ("$totalSteps")
-        }
-
         loadData()
-        resetSteps()
+        saveData()
 
-        // Adding a context of SENSOR_SERVICE aas Sensor Manager
+        // Adding a context of SENSOR_SERVICE as Sensor Manager
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
 
@@ -64,7 +48,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         // So don't forget to add the following permission in AndroidManifest.xml present in manifest folder of the app.
         val stepSensor = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
 
-
         if (stepSensor == null) {
             // This will give a toast message to the user if there is no sensor in the device
             Toast.makeText(this, "No sensor detected on this device", Toast.LENGTH_SHORT).show()
@@ -75,42 +58,8 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-
-        // Calling the TextView that we made in activity_main.xml
-        // by the id given to that TextView
-        var tv_stepsTaken = findViewById<TextView>(R.id.steps)
-
         if (running) {
             totalSteps = event!!.values[0]
-
-            // Current steps are calculated by taking the difference of total steps
-            // and previous steps
-            val currentSteps = totalSteps.toInt() - previousTotalSteps.toInt()
-
-            // It will show the current steps to the user
-            tv_stepsTaken.text = ("$currentSteps")
-        }
-    }
-
-    fun resetSteps() {
-        var tv_stepsTaken = findViewById<TextView>(R.id.steps)
-        tv_stepsTaken.setOnClickListener {
-            // This will give a toast message if the user want to reset the steps
-            Toast.makeText(this, "Long tap to reset steps", Toast.LENGTH_SHORT).show()
-        }
-
-        tv_stepsTaken.setOnLongClickListener {
-
-            previousTotalSteps = totalSteps
-
-            // When the user will click long tap on the screen,
-            // the steps will be reset to 0
-            tv_stepsTaken.text = 0.toString()
-
-            // This will save the data
-            saveData()
-
-            true
         }
     }
 
@@ -122,7 +71,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         val sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
 
         val editor = sharedPreferences.edit()
-        editor.putFloat("key1", previousTotalSteps)
+        editor.putFloat("key1", totalSteps)
         editor.apply()
     }
 
@@ -135,12 +84,11 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         // Log.d is used for debugging purposes
         Log.d("MainActivity", "$savedNumber")
 
-        previousTotalSteps = savedNumber
+        totalSteps = savedNumber
     }
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         // We do not have to write anything in this function for this app
     }
-
 
 }
