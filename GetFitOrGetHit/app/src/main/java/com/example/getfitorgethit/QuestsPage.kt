@@ -3,6 +3,7 @@ package com.example.getfitorgethit
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -34,29 +35,23 @@ class QuestsPage : AppCompatActivity() {
 
         var completebt1 = findViewById<Button>(R.id.complete1)
         completebt1.setOnClickListener {
-            if(randomval1 > 2){
-                completebt1.visibility = View.VISIBLE
-            }
-            //val intentcbt1 = Intent(this, QuestsPage::class.java)
+        }
+        if(randomval1 > 2){
+            completebt1.text = "Complete"
+            Log.d("test","output")
         }
 
         var completebt2 = findViewById<Button>(R.id.complete2)
         completebt2.setOnClickListener {
-            if(randomval2 > 2){
-                val complete2Button = Button(this)
-                complete2Button.text= "Complete"
-                Button complete2 = new Button(this);
-                complete2.setText("Complete");
-                completebt2.visibility = View.VISIBLE
-            }
-            //val intentcbt2 = Intent(this, QuestsPage::class.java)
+        }
+        if(randomval2 > 2){
+            completebt2.text = "Complete"
         }
         var completebt3 = findViewById<Button>(R.id.complete3)
         completebt3.setOnClickListener {
-            if(randomval3 > 2){
-                completebt3.visibility = View.VISIBLE
-            }
-            //val intentcbt3 = Intent(this, QuestsPage::class.java)
+        }
+        if(randomval3 > 2){
+            completebt3.text = "Complete"
         }
 
 
