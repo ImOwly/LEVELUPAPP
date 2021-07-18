@@ -76,9 +76,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="327dp"
-        android:layout_height="322dp"
-        android:background="@drawable/smollboss"
+        android:layout_width="281dp"
+        android:layout_height="291dp"
+        android:background="@drawable/boss"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
