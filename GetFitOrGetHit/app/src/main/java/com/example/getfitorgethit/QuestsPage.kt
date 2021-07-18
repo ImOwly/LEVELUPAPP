@@ -11,6 +11,7 @@ import com.example.getfitorgethit.R
 import kotlin.random.Random
 
 class QuestsPage : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quests_page)
@@ -27,6 +28,7 @@ class QuestsPage : AppCompatActivity() {
 
         //initializes array of quests as well as reward values
         var quests: Array<String> = arrayOf("Walk for 1km","Walk for 5km","Walk for 10km","Do 10 sit-ups", "Do 10 push-ups")
+        var kmInSteps: IntArray = intArrayOf(1515,7575,15150)
         val damagenumbers: IntArray = intArrayOf(150,300,600,150,150)
 
         //finds the quest tab
@@ -35,66 +37,63 @@ class QuestsPage : AppCompatActivity() {
         var thirdquest = findViewById<TextView>(R.id.quest3)
 
         //generates a random values so quests are spawned randomly
-        val randomval1 = Random.nextInt(0,4)
-        firstquest.text = quests.get(randomval1)
-        val randomval2 = Random.nextInt(0,4)
-        secondquest.text = quests.get(randomval2)
-        val randomval3 = Random.nextInt(0,4)
-        thirdquest.text = quests.get(randomval3)
+        Quests.generateQuests()
+        firstquest.text = Quests.getQuestOneName()
+        secondquest.text = Quests.getQuestTwoName()
+        thirdquest.text = Quests.getQuestThreeName()
 
         //initalizes the complete button on quests
         var completebt1 = findViewById<Button>(R.id.complete1)
         completebt1.setOnClickListener {
-            //checks if it is complete
-            if(randomval1 > 2){
+            //checks if quest is complete
+            if(Quests.questAutoComplete(1) || Quests.questOneProgress()){
                 completebt1.text = "Complete"
             }
-            //if it is complete take the damamge and decrease boss health
-            if(completebt1.text == "Complete"){
-                damagetaken=damagenumbers.get(randomval1)
+            //if complete, take the damage and decrease boss health
+            if(completebt1.text == "Complete" && !Quests.questOneIsComplete()){
+                //Get amount of damage done
+                damagetaken=Quests.getQuestOneDamage()
+                //calculate boss new health
                 currhealth=Boss.getbosshealth()
                 currhealth=currhealth-damagetaken
                 Boss.setcurrbosshealth(currhealth)
             }
         }
         //initial check if they are the quests that dont revolve around walking
-        if(randomval1 > 2){
+        if(Quests.questAutoComplete(1)){
             completebt1.text = "Complete"
         }
 
         var completebt2 = findViewById<Button>(R.id.complete2)
         completebt2.setOnClickListener {
-            if(randomval2 > 2){
+            if(Quests.questAutoComplete(2) || Quests.questTwoProgress()){
                 completebt2.text = "Complete"
             }
-            if(completebt2.text == "Complete"){
-                damagetaken=damagenumbers.get(randomval2)
+            if(completebt2.text == "Complete" && !Quests.questTwoIsComplete()){
+                damagetaken=Quests.getQuestTwoDamage()
                 currhealth=Boss.getbosshealth()
                 currhealth=currhealth-damagetaken
                 Boss.setcurrbosshealth(currhealth)
-
             }
         }
-        if(randomval2 > 2){
+        if(Quests.questAutoComplete(2)){
             completebt2.text = "Complete"
         }
+
         var completebt3 = findViewById<Button>(R.id.complete3)
         completebt3.setOnClickListener {
-            if(randomval3 > 2){
+            if(Quests.questAutoComplete(3) || Quests.questThreeProgress()){
                 completebt3.text = "Complete"
             }
-            if(completebt3.text == "Complete"){
-                damagetaken=damagenumbers.get(randomval2)
+            if(completebt3.text == "Complete" && !Quests.questThreeIsComplete()){
+                damagetaken=Quests.getQuestThreeDamage()
                 currhealth=Boss.getbosshealth()
                 currhealth=currhealth-damagetaken
                 Boss.setcurrbosshealth(currhealth)
             }
         }
-        if(randomval3 > 2){
+        if(Quests.questAutoComplete(3)) {
             completebt3.text = "Complete"
         }
-
-
-        
     }
 }
