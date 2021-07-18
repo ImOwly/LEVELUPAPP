@@ -1,6 +1,6 @@
 package com.example.getfitorgethit
 
-import android.R
+//import android.R
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView

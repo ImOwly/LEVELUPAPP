@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import java.text.SimpleDateFormat
+import java.util.*
 
 class StatsPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,8 +26,8 @@ class StatsPage : AppCompatActivity() {
         val currentDate = sdf.format(Date())
 
         //puts current date and time into text
-        setContentView(android.R.layout.layoutName)
-        val textView = findViewById<View>(android.R.id.editTextTime) as TextView
-        textView.text = currentDate
+        //setContentView(android.R.layout.layoutName)
+        //val textView = findViewById<View>(android.R.id.editTextTime) as TextView
+        //textView.text = currentDate
     }
 }
