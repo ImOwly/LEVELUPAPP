@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         settingsbutton.setOnClickListener {
             val intentsettings = Intent(this, SettingsPage::class.java)
             startActivity(intentsettings)
+        }
     }
 
     override fun onResume() {
