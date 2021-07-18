@@ -1,5 +1,5 @@
 package com.example.getfitorgethit
-
+import android.media.MediaPlayer
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -89,6 +89,14 @@ class QuestsPage : AppCompatActivity() {
         }
         if(Quests.questAutoComplete(3)) {
             completebt3.text = "Complete"
+        }
+
+        var mMediaPlayer: MediaPlayer? = null
+        fun playSound(view: View) {
+            if (mMediaPlayer == null) {
+                mMediaPlayer = MediaPlayer.create(this, R.raw.Turn_In)
+                mMediaPlayer!!.start()
+            } else mMediaPlayer!!.start()
         }
     }
 }
