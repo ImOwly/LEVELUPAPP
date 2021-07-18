@@ -20,14 +20,5 @@ class StatsPage : AppCompatActivity() {
             val ibstats = Intent(this, MainActivity::class.java)
             startActivity(ibstats)
         }
-
-        //grabs time and date
-        val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-        val currentDate = sdf.format(Date())
-
-        //puts current date and time into text
-//        setContentView(android.R.layout.layoutName)
-//        val textView = findViewById<View>(android.R.id.TimeAndDate) as TextView
-//        textView.text = currentDate
     }
 }
