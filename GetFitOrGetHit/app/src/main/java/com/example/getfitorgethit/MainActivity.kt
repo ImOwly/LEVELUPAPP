@@ -39,8 +39,8 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
 
         val healthBar = findViewById<ProgressBar>(R.id.healthBar)
-        healthBar.max=100
-        val currentProgress=69
+        healthBar.max=1350
+        val currentProgress=1350
         healthBar.setProgress(currentProgress)
 
 

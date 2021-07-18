@@ -21,8 +21,9 @@ class QuestsPage : AppCompatActivity() {
             startActivity(ibquests)
         }
 
-        val numofcompletequests=0
+        var damagetaken=0
         var quests: Array<String> = arrayOf("Walk for 1km","Walk for 5km","Walk for 10km","Do 10 sit-ups", "Do 10 push-ups")
+        val damagenumbers: IntArray = intArrayOf(150,300,600,150,150)
         var firstquest = findViewById<TextView>(R.id.quest1)
         var secondquest = findViewById<TextView>(R.id.quest2)
         var thirdquest = findViewById<TextView>(R.id.quest3)
@@ -35,6 +36,15 @@ class QuestsPage : AppCompatActivity() {
 
         var completebt1 = findViewById<Button>(R.id.complete1)
         completebt1.setOnClickListener {
+            if(randomval1 > 2){
+                completebt1.text = "Complete"
+            }
+            if(completebt1.text == "Complete"){
+                damagetaken=damagenumbers.get(randomval1)
+                healthBar.setProgress
+
+
+            }
         }
         if(randomval1 > 2){
             completebt1.text = "Complete"
@@ -43,12 +53,24 @@ class QuestsPage : AppCompatActivity() {
 
         var completebt2 = findViewById<Button>(R.id.complete2)
         completebt2.setOnClickListener {
+            if(randomval2 > 2){
+                completebt2.text = "Complete"
+            }
+            if(completebt2.text == "Complete"){
+
+            }
         }
         if(randomval2 > 2){
             completebt2.text = "Complete"
         }
         var completebt3 = findViewById<Button>(R.id.complete3)
         completebt3.setOnClickListener {
+            if(randomval3 > 2){
+                completebt3.text = "Complete"
+            }
+            if(completebt3.text == "Complete"){
+
+            }
         }
         if(randomval3 > 2){
             completebt3.text = "Complete"
