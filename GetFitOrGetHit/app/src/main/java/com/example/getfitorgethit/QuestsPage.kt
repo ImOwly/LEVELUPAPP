@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import com.example.getfitorgethit.R
 
 class QuestsPage : AppCompatActivity() {
@@ -16,5 +17,9 @@ class QuestsPage : AppCompatActivity() {
             val ibquests = Intent(this, MainActivity::class.java)
             startActivity(ibquests)
         }
+
+        var steps = StepCounter.getSteps()
+        var text = findViewById<TextView>(R.id.textView2)
+        text.text = "$steps"
     }
 }
