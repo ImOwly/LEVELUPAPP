@@ -70,7 +70,6 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             val intentshop = Intent(this, ShopPage::class.java)
             startActivity(intentshop)
         }
-        
     }
 
     override fun onResume() {
