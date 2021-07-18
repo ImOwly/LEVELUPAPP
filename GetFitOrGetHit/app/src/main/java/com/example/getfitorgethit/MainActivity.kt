@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        StepCounter.setSteps(totalSteps)
         loadData()
         saveData()
 
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     override fun onSensorChanged(event: SensorEvent?) {
         if (running) {
             totalSteps = event!!.values[0]
-
+            StepCounter.setSteps(totalSteps)
         }
     }
 
