@@ -80,9 +80,31 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextClock
+        android:id="@+id/idTextClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/idTextClock"
         android:format12Hour="hh:mm:ss"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/StepHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="100dp"
+        android:text="Steps:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+    <TextView
+        android:id="@+id/StepCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/StepHeader"
+        app:layout_constraintTop_toTopOf="@+id/StepHeader" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

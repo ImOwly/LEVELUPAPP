@@ -20,5 +20,10 @@ class StatsPage : AppCompatActivity() {
             val ibstats = Intent(this, MainActivity::class.java)
             startActivity(ibstats)
         }
+
+        //Change StepCount
+        var steps = StepCounter.getSteps()
+        var text = findViewById<TextView>(R.id.StepCount)
+        text.text = "$steps"
     }
 }

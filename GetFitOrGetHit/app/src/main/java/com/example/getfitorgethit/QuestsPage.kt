@@ -26,11 +26,6 @@ class QuestsPage : AppCompatActivity() {
         var currhealth=0
         var damagetaken=0
 
-        //initializes array of quests as well as reward values
-        var quests: Array<String> = arrayOf("Walk for 1km","Walk for 5km","Walk for 10km","Do 10 sit-ups", "Do 10 push-ups")
-        var kmInSteps: IntArray = intArrayOf(1515,7575,15150)
-        val damagenumbers: IntArray = intArrayOf(150,300,600,150,150)
-
         //finds the quest tab
         var firstquest = findViewById<TextView>(R.id.quest1)
         var secondquest = findViewById<TextView>(R.id.quest2)
