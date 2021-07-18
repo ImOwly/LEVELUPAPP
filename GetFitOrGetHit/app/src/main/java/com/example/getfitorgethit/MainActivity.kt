@@ -70,12 +70,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             val intentshop = Intent(this, ShopPage::class.java)
             startActivity(intentshop)
         }
-
-        var settingsbutton = findViewById<Button>(R.id.settingspagebutton)
-        settingsbutton.setOnClickListener {
-            val intentsettings = Intent(this, SettingsPage::class.java)
-            startActivity(intentsettings)
-        }
+        
     }
 
     override fun onResume() {
