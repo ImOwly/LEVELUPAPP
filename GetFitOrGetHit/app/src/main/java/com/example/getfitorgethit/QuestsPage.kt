@@ -12,6 +12,22 @@ import kotlin.random.Random
 
 class QuestsPage : AppCompatActivity() {
 
+    var mMediaPlayer: MediaPlayer? = null
+    fun playSound(view: View) {
+        if (mMediaPlayer == null) {
+            mMediaPlayer = MediaPlayer.create(this, R.raw.questcompletenoise)
+            mMediaPlayer!!.isLooping = true
+            mMediaPlayer!!.start()
+        } else mMediaPlayer!!.start()
+    }
+    override fun onStop() {
+        super.onStop()
+        if (mMediaPlayer != null) {
+            mMediaPlayer!!.release()
+            mMediaPlayer = null
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quests_page)
@@ -89,14 +105,6 @@ class QuestsPage : AppCompatActivity() {
         }
         if(Quests.questAutoComplete(3)) {
             completebt3.text = "Complete"
-        }
-
-        var mMediaPlayer: MediaPlayer? = null
-        fun playSound(view: View) {
-            if (mMediaPlayer == null) {
-                mMediaPlayer = MediaPlayer.create(this, R.raw.questcompletenoise)
-                mMediaPlayer!!.start()
-            } else mMediaPlayer!!.start()
         }
     }
 }
