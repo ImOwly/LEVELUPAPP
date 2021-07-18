@@ -10,10 +10,7 @@ import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 
 
 class MainActivity : AppCompatActivity(), SensorEventListener {
@@ -53,23 +50,24 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         // Adding a context of SENSOR_SERVICE as Sensor Manager
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
-        var statsbutton = findViewById<Button>(R.id.statspagebutton)
+        var statsbutton = findViewById<ImageButton>(R.id.statspagebutton)
         statsbutton.setOnClickListener {
             val intentstats = Intent(this, StatsPage::class.java)
             startActivity(intentstats)
         }
 
-        var questsbutton = findViewById<Button>(R.id.questpagebutton)
+        var questsbutton = findViewById<ImageButton>(R.id.questpagebutton)
         questsbutton.setOnClickListener {
             val intentquests = Intent(this, QuestsPage::class.java)
             startActivity(intentquests)
         }
 
-        var shopbutton = findViewById<Button>(R.id.shoppagebutton)
+        var shopbutton = findViewById<ImageButton>(R.id.shoppagebutton)
         shopbutton.setOnClickListener {
             val intentshop = Intent(this, ShopPage::class.java)
             startActivity(intentshop)
         }
+
     }
 
     override fun onResume() {

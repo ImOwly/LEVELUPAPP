@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import com.example.getfitorgethit.R
 import kotlin.random.Random
@@ -17,7 +18,7 @@ class QuestsPage : AppCompatActivity() {
         setContentView(R.layout.activity_quests_page)
 
         //creates the back button quest activity that goes back to main screen
-        var backbuttonquest = findViewById<Button>(R.id.bbquests)
+        var backbuttonquest = findViewById<ImageButton>(R.id.bbquests)
         backbuttonquest.setOnClickListener {
             val ibquests = Intent(this, MainActivity::class.java)
             startActivity(ibquests)
