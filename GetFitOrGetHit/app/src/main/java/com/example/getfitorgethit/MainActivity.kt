@@ -1,6 +1,7 @@
 package com.example.getfitorgethit
 
-
+import android.animation.ObjectAnimator
+import android.content.Intent
 import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -10,9 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import android.content.Intent
+
 
 class MainActivity : AppCompatActivity(), SensorEventListener {
     // Added SensorEventListener the MainActivity class
@@ -36,12 +38,21 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         setContentView(R.layout.activity_main)
 
         StepCounter.setSteps(totalSteps)
+
+        //sets the boss health bar and updates everytime when going back to main screen
+        val healthBar = findViewById<ProgressBar>(R.id.healthBar)
+        healthBar.max=Boss.getmaxhealth()
+        val currentProgress=Boss.getbosshealth()
+        healthBar.setProgress(currentProgress)
+
+
+
         loadData()
         saveData()
 
         // Adding a context of SENSOR_SERVICE as Sensor Manager
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        
+
         var statsbutton = findViewById<Button>(R.id.statspagebutton)
         statsbutton.setOnClickListener {
             val intentstats = Intent(this, StatsPage::class.java)
