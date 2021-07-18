@@ -94,7 +94,7 @@ class QuestsPage : AppCompatActivity() {
         var mMediaPlayer: MediaPlayer? = null
         fun playSound(view: View) {
             if (mMediaPlayer == null) {
-                mMediaPlayer = MediaPlayer.create(this, R.raw.Turn_In)
+                mMediaPlayer = MediaPlayer.create(this, R.raw.questcompletenoise)
                 mMediaPlayer!!.start()
             } else mMediaPlayer!!.start()
         }
