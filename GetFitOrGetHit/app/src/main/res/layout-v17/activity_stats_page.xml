@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundcolor"
     tools:context=".StatsPage">
 
     <TextView
@@ -19,11 +18,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.088" />
 
-    <ImageButton
+    <Button
         android:id="@+id/bbstats"
-        android:layout_width="98dp"
-        android:layout_height="44dp"
-        android:background="@drawable/backbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,8 +57,8 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="173dp"
-        android:layout_height="37dp"
+        android:layout_width="167dp"
+        android:layout_height="48dp"
         android:layout_marginTop="136dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -70,23 +68,20 @@
         app:layout_constraintStart_toEndOf="@+id/imageButton"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/TimeAndDate"
-        android:layout_width="169dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
     <TextClock
         android:id="@+id/idTextClock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:format12Hour="hh:mm:ss"
-        tools:ignore="MissingConstraints" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:format12Hour="hh:mm:ss a"
+        android:textColor="#000000"
+        android:textSize="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/StepHeader"
@@ -108,5 +103,4 @@
         android:text="0"
         app:layout_constraintStart_toEndOf="@+id/StepHeader"
         app:layout_constraintTop_toTopOf="@+id/StepHeader" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

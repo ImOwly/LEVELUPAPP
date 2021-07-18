@@ -23,13 +23,9 @@ class StatsPage : AppCompatActivity() {
             startActivity(ibstats)
         }
 
-        //grabs time and date
-        val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-        val currentDate = sdf.format(Date())
-
-        //puts current date and time into text
-        //setContentView(android.R.layout.layoutName)
-        //val textView = findViewById<View>(android.R.id.editTextTime) as TextView
-        //textView.text = currentDate
+        //Change StepCount
+        var steps = StepCounter.getSteps()
+        var text = findViewById<TextView>(R.id.StepCount)
+        text.text = "$steps"
     }
 }
