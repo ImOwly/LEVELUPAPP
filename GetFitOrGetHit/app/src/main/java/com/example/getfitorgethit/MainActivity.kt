@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        //sets the boss health bar and updates everytime when going back to main screen
         val healthBar = findViewById<ProgressBar>(R.id.healthBar)
-        healthBar.max=1350
-        val currentProgress=1350
+        healthBar.max=Boss.getmaxhealth()
+        val currentProgress=Boss.getbosshealth()
         healthBar.setProgress(currentProgress)
 
 
