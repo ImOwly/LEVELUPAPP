@@ -26,8 +26,8 @@ class StatsPage : AppCompatActivity() {
         val currentDate = sdf.format(Date())
 
         //puts current date and time into text
-        //setContentView(android.R.layout.layoutName)
-        //val textView = findViewById<View>(android.R.id.editTextTime) as TextView
-        //textView.text = currentDate
+//        setContentView(android.R.layout.layoutName)
+//        val textView = findViewById<View>(android.R.id.TimeAndDate) as TextView
+//        textView.text = currentDate
     }
 }
